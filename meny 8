@@ -1,0 +1,18 @@
+#Menyval 8: Gör så Marvin kan tala rövarspråket. 
+#Marvin ska använda ett input anrop för att ta emot ett ord och sen skriva ut ordet översatt till rövarspråket.
+# Exempel: "b" blir "bob" och "Hans" blir "hohanonsos"
+
+#Problemet = C0200: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+
+
+consonant = 'bcdfghjklmnpqrstvwxz'
+word= input("Type: ")
+word=word.lower()
+rov= ''
+
+for c in range(0, len(word)):
+        if word[c] in consonant:
+                rov = rov+word[c]+'o'+word[c]
+        else:
+                rov=rov+word[c]
+print(rov)
