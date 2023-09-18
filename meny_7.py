@@ -37,17 +37,16 @@ def valid_person(personnummer: int) -> bool:
         return False
 
 
-if __name__ == "__main__":
-    user_input = input("Enter your social security number, 10 numbers: ")
+user_input = input("Enter your social security number, 10 numbers: ")
 
-    # If personnummer is longer than 11 characters, it is not valid
-    if len(user_input) > 11:
-        print("Personnummer is too long")
-    else:
+# If personnummer is longer than 11 characters, it is not valid
+if len(user_input) > 11:
+    print("Personnummer is too long")
+else:
         # Remove - from personnummer
-        user_input = user_input.replace("-", "")
+    user_input = user_input.replace("-", "")
 
-    if valid_person(user_input):
-        print("Valid")
-    else:
-        print("Not valid")
+if valid_person(user_input):
+    print("Valid")
+else:
+    print("Not valid")
