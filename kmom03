@@ -14,19 +14,21 @@
 #
 
 
-sentence = "How brief our moment of life is. How to be steadfast, and strong, and in control of yourself."
+SENTENCE = "How brief our moment of life is. How to be steadfast, and strong, and in control of yourself."
 
-def number_of_vowels(words: int):
+def number_of_vowels(words: str):
     VOWELS= "aeiouyAEIOUY"
     count = 0
 
-    for i in words:
-        if i in VOWELS:
+    for letter in words:
+        if letter in VOWELS:
             count += 1
-    print(count)
+    return count
 
 
-ANSWER = number_of_vowels(sentence)
+answer = number_of_vowels(SENTENCE)
+
+print(answer)
 
 
 
