@@ -30,7 +30,7 @@ ANSWER = number_of_vowels(sentence)
 
 
 
-# det som kommer från pylint är följande 
+# det som kommer från pylint är följande :
 #>>>  You said:
 #None <class 'NoneType'>
 #>>> Hint:
