@@ -13,9 +13,9 @@ ANSWER = analyze_password("test")
 
 ________
 # pylint ger det nedan
-test is not a valid password and contains 1 vowels
->>>  1.4 FAIL.
->>>  You said:
-None <class 'NoneType'>
->>> Hint:
-test is not a valid password and contains 1 vowels. <class 'str'>
+#test is not a valid password and contains 1 vowels
+#>>>  1.4 FAIL.
+#>>>  You said:
+#None <class 'NoneType'>
+#>>> Hint:
+#test is not a valid password and contains 1 vowels. <class 'str'>
