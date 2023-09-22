@@ -1,21 +1,31 @@
-def analyze_password(pword) -> str:
-    if valid_password(pword) is False:
-        hej= "is not a valid password"
-    else:
-        hej = "is a valid password"
-                  
+# Hitta alla index. Marvin ska be om två strängar, där den andra strängen är en del-sträng av den första. 
+# Funktionen ska returnera en kommaseparerad sträng med alla indexplatser där den andra strängen finns med i den första. 
+# Det ska inte vara ett kommatecken på slutet av strängen. 
+# Om strängen som skickas in som andra argument inte finns i första argumentet ska funktionen returnera en tom sträng.
+
+# Använd sträng funktionen funktionen index() för att hitta indexplatser, notera att index() returnerar bara ett index åt gången, 
+# så även om en sträng finns med på två ställen returneras bara den första. 
+# För att komma runt detta och hitta alla index behöver ni anropa index() flera gånger och skicka med ett extra argument, start. 
+# start markera vilken index position funktionen ska börja leta från. 
+# Notera också att index funktionen lyfter ett ValueError om en söksträngen inte finns. 
+# Ni ska använda er av try-except i er funktion för att förhindra programmet från att krascha när det inträffar.
+
+
+def find_all_indexes():
+    word = input("Type a word: ")
+    were = input("Enter a letter to find: ")
     
-    print(f"{pword} {hej} and contains {number_of_vowels(pword)} vowels")
+    try:
+        for index, letter in enumerate(word):
+            print(index(were), end="")
+            if index < len(word)-1:
+                print(",", end="")
+    except ValueError:
+        print("")
+
+            
+            
+
+find_all_indexes()
 
 
-ANSWER = analyze_password("test")
-
-
-________
-# pylint ger det nedan
-#test is not a valid password and contains 1 vowels
-#>>>  1.4 FAIL.
-#>>>  You said:
-#None <class 'NoneType'>
-#>>> Hint:
-#test is not a valid password and contains 1 vowels. <class 'str'>
