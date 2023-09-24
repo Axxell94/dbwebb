@@ -46,7 +46,6 @@ def validate_ssn(personnummer: int) -> bool:   #detta är menyval 7 om du läser
         
         
 def create_ssn(): #detta är då den nya, meny 9
-    birthday=input("Enter birthday: ")
     for numbers in birthday:
         print(numbers)
         birthday = numbers
@@ -64,8 +63,14 @@ def calculate_luhna_sum(): #återigen tillhör meny 9
         #två alternativ antingen slumpa fram sista_siffran tills formeln blir valid eller räkna ut det med %.
         #men då behöver sifforna i födelsedatumet vara 6 st, inte räknas som en.
         
-        if validate_ssn(create_ssn(birthday) + sista_siffran) is True: #Hur ska jag kalla in en funktion in i en annan
-            print(birthday,"-",rand_1 , rand_2 , rand_3, sista_siffran, sep='')
+        if validate_ssn(create_ssn(birthday) + sista_siffran) is True: #Hur ska jag kalla in en funktion in i en annan.
+            print(birthday,"-",rand_1 , rand_2 , rand_3, sista_siffran, sep='') #detta sättet bygger på att slumpa fram siffran, inte lika snygg som att använda modulus %
             True
             return 
+   
+
+
+birthday=input("Enter birthday: ")
+#sen här call functions, hur ska jag göra det på bästa sätt?
+
 
