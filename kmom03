@@ -41,10 +41,12 @@ def main():
         if choice == "q":
             stop= Ture
 
-         elif "inv pick" in choice:
-            choice.split("")    
-          #  ["inv", "pick", "flower", 0] #detta för att markera att man ska skriva in inv pick flower (sen eventuellt en index för var det ska in)
-            inventory.pick(bag, ... , ...) # såhär visade läraren men jag är inte helt klar med varför detta kodas så. 
+          elif "inv pick" in choice:
+            choices = choice.split(" ")
+            if len(choices) == 4:
+                pick(bag, choices[2], choices[3])
+            if len(choices) == 3:
+                pick(bag, choices[2])   # Finns det annat bra sätta att koda detta på? 
 
         elif "inv drop" in choice:
             drop(bag, "thing")
