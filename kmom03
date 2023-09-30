@@ -17,17 +17,17 @@ def pick(bag, thing, position=""):
         väskan=f"{thing} has been added"
         print(väskan)
 
+    else:
+        try:
+            place=int(position)
+        
+            bag.insert(place,thing)
+            väskan = f"{thing} has been added in index {position}"
+            print(väskan) #behöver jag göra om det till väskan eller är det bara onödrigt?
     
-    try:
-        place=int(position)
-    
-        bag.insert(place,thing)
-        väskan = f"{thing} has been added in index {position}"
-        print(väskan) #behöver jag göra om det till väskan eller är det bara onödrigt?
-
-    except IndexError: 
-        print(f"Error with {position}")
-        return bag
+        except IndexError: 
+            print(f"Error with {position}")
+            return bag
 
     return bag
 
