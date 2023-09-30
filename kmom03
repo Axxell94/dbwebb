@@ -17,7 +17,6 @@ def pick(bag, thing, i=None): #):position="" fungerar också, iaf med en index-v
         väskan=f"{thing} has been added"
         print(väskan)
 
-    
     try:
         place=int(i)
     
