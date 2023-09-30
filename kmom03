@@ -10,7 +10,7 @@ Om allt gick bra skall du skriva ut ett passande meddelande som innehåller vad 
 och på vilken position om ett index är givet. Meddelandet skall skivas ut i funktionen och inte main programmet.
 
 
-def pick(bag, thing, position=""): #börja med den första för att jag ska få klart hur jag ska koda. De andra uppgifterna är i stort lösta
+def pick(bag, thing, i = None): #börja med den första för att jag ska få klart hur jag ska koda. De andra uppgifterna är i stort lösta
 # jag ska bara få till hur argumenten kommer in
     """lägg till något i ryggan"""
     if position=="":
@@ -45,7 +45,7 @@ def main():
 
          elif "inv pick" in choice:
             choice.split("")    
-            ["inv", "pick", "flower", 0] 
+          #  ["inv", "pick", "flower", 0] #detta för att markera att man ska skriva in inv pick flower (sen eventuellt en index för var det ska in)
             inventory.pick(bag, ... , ...) # såhär visade läraren men jag är inte helt klar med varför detta kodas så. 
 
         elif "inv drop" in choice:
