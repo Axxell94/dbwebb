@@ -10,20 +10,19 @@ Om allt gick bra skall du skriva ut ett passande meddelande som innehåller vad 
 och på vilken position om ett index är givet. Meddelandet skall skivas ut i funktionen och inte main programmet.
 
 
-def pick(bag, thing, i = None): #börja med den första för att jag ska få klart hur jag ska koda. De andra uppgifterna är i stort lösta
-# jag ska bara få till hur argumenten kommer in
+def pick(bag, thing, i=None): #):position="" fungerar också, iaf med en index-värde
     """lägg till något i ryggan"""
-    if position=="":
+    if i==None:
         bag.append(thing)
         väskan=f"{thing} has been added"
         print(väskan)
+
     
     try:
-        place=int(position)
-        if place > (len(bag-1)):
-            raise IndexError
+        place=int(i)
+    
         bag.insert(place,thing)
-        väskan = f"{thing} has been added in index {position}"
+        väskan = f"{thing} has been added in index {i}"
         print(väskan)
 
     except IndexError: 
@@ -31,7 +30,6 @@ def pick(bag, thing, i = None): #börja med den första för att jag ska få kla
         return bag
 
     return bag
-
 
 def main():
     stop=False
