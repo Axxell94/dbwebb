@@ -1,61 +1,34 @@
-Lär Marvin att hantera listor. Skapa funktionen pick som tar emot tre argument, den första skall vara ryggsäcken, 
-den andra skall vara saken man skall plocka upp och den tredje skall vara en optionell parameter som säger vilken position (index)-
-saken skall lägga sig i (som en string). Funktionen ska lägga till saken i listan, 
-om position skickas med ska saken tryckas in på den platsen (du ska inte ersätta det som redan ligger på den platsen, 
-de sakerna ska flyttas ett index åt höger). Om position inte skickas med ska saken läggas till sist i ryggsäcken. 
-Funktionen skall returnera den uppdaterade ryggsäcken.
-
-I main.py skall du lägga till stöd för kommandot “inv pick” enligt tabellen nedan. 
-Om allt gick bra skall du skriva ut ett passande meddelande som innehåller vad som lades till i ryggsäcken
-och på vilken position om ett index är givet. Meddelandet skall skivas ut i funktionen och inte main programmet.
+#Problemet jag får:
+# TypeError: list indices must be integers or slices, not str   <----
 
 
-def pick(bag, thing, position=""): 
-    """lägg till något i ryggan"""
-    if position=="":
-        bag.append(thing)
-        väskan=f"{thing} has been added"
-        print(väskan)
+# Uppgiften är att byta plats på två saker i listan. 
+# i main.py skall du lägga till stöd för kommandot “inv swap" : 
 
-    else:
-        try:
-            place=int(position)
-        
-            bag.insert(place,thing)
-            väskan = f"{thing} has been added in index {position}"
-            print(väskan) #behöver jag göra om det till väskan eller är det bara onödrigt?
-    
-        except IndexError: 
-            print(f"Error with {position}")
-            return bag
+bag=["sko", "väska", "flodhäst"]
 
+def swap(bag, thing1, thing2):
+    """byt plats på saker"""
+                 
+    temp= bag[thing1]
+    bag[thing1] = bag[thing2]
+    bag[thing2]= temp
+    print(bag)
     return bag
 
-def main():
+
+
+def main():   # jag tog bort alla onödiga saker här 
     stop=False
     while not stop:
         
         choice = input("--> ")
-        
-        
         if choice == "q":
             stop= Ture
 
-          elif "inv pick" in choice:
+        elif "inv swap" in choice:    # det vill säga man skriver exempelvis "inv swap sko väska" för att kalla på funktionen
             choices = choice.split(" ")
-            if len(choices) == 4:
-                pick(bag, choices[2], choices[3])
-            if len(choices) == 3:
-                pick(bag, choices[2])   # Finns det annat bra sätta att koda detta på? 
-
-        elif "inv drop" in choice:
-            drop(bag, "thing")
-            
-        elif "inv swap" in choice:
-            swap(bag, thing1, thing2) 
-
-
-
+            swap(bag,choices[2], choices[3])
 
 
 if __name__ == "__main__":
