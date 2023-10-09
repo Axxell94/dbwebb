@@ -1,0 +1,110 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+from emission_data import emission_1990, emission_2005, emission_2017, country_data
+
+
+def search_country(search_word):
+    """Serch a country in the database"""
+    search_word = search_word.lower()
+    countries_in_data =[]
+
+    
+    for country in country_data:
+        if search_word in country.lower():
+            countries_in_data.append(country)
+    
+    
+    if countries_in_data:
+        print(f"Following countries were found: {countries_in_data}")
+    else:
+        raise ValueError("Country does not exist!")
+    #except ValueError: #jag får inte detta att fungera som jag vill
+     #   countries_found
+
+
+def get_country_year_data_megaton(country, year):
+    """Emission and what year"""
+    try: 
+        country_id = country_data[country]["id"]
+        if year not in ("1990", "2005", "2017"):
+            raise ValueError("Wrong year!")
+        
+        if year ==  "1990":
+            emission = emission_1990[country_id] * 1000000
+            
+        elif year == "2005" :
+            emission = emission_2005[country_id] * 1000000
+            
+        elif year == "2017" :
+            emission = emission_2017[country_id] * 1000000
+            
+        return (emission)
+    except ValueError:
+        return("Wrong year!")
+
+    except KeyError:
+        return ("Try another country")
+    
+
+
+
+def get_country_change_for_years(country, year1, year2):
+    """Change in emission"""
+    
+    try: 
+        year1=get_country_year_data_megaton(country, year1)
+        year2=get_country_year_data_megaton(country, year2)
+        year1 = float(year1)
+        year2 = float(year2)
+        change= (year2-year1)/year1*100
+        return (round(change,2))
+    except ValueError:
+        return 
+
+    
+    
+#Funktionen get_country_data(country_name) ska ta emot en sträng som argument vilket är namnet på landet. 
+#I funktionen ska du bygga upp en dictionary med data och returnera. 
+#Om landet saknar populations data, sätt värdet None för den nyckeln. 
+#Använd de tidigare funktionerna get_country_change_for_years och get_country_year_data_megaton för att hämta ut utsläpps data. 
+# Ex: 
+#arguments: "Sweden"     return:{
+#                            'name': 'Sweden',
+#                            1990: {'emission': 58117000.0, 'population': 8567375},
+#                            2005: {'emission': 55877000.0, 'population': 9038627},
+#                            2017: {'emission': 50874000.0, 'population': 9904895},
+#                            'emission_change': (-3.85, -8.95)
+#
+
+def country_data(country_name):
+    """Get the data"""
+    country_pop = country_data[country_name]["population"]
+    if country_pop["population"]:
+        population = country_pop["population"]
+    else:
+        population = (None, None, None)
+
+
+
+
+#Funktionen print_country_data(data) ska ta emot en dictionary med data om ett land och skriva ut den. 
+#Formatera utskriften av datan enligt:
+#
+#"<landets namn>"
+#"<år>: <utsläpp för det året i ton>"
+#"<år>: <antal invårare för det året>"
+#"<år>-<år>: <förändring av utsläpp i procent>"
+#Om invånare data saknas (är None) skriv ut "Missing population data!" istället för <år>: <antal invånare>.
+
+#def print_country_data(data):
+#   """Print datan"""
+#   
+#
+#   for year in ("1990", "2005", "2017"):
+#       temp_list = [year] + list(country[year].values())
+#   if temp_list[2] is None:
+#       temp_list[2] = "Missing population data!"
+#   country_list.append(temp_list)
+#
+#   country_list.append(list(country["emission_change"]))
